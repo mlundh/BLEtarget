@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ElectronicBLETarget_SchematicSymbols")(type "KiCad")(uri "${KIPRJMOD}/ElectronicBLETarget_SchematicSymbols.kicad_sym")(options "")(descr ""))
+)

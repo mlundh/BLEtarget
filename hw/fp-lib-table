@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ElectronicBLETarget_PCBFootprints")(type "KiCad")(uri "${KIPRJMOD}/ElectronicBLETarget_PCBFootprints.pretty")(options "")(descr ""))
+)
