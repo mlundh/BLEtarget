@@ -1,0 +1,11 @@
+
+#include "app.h"
+#include "usbd_cdc_if.h"
+
+void taskCyclic()
+{
+  if(interruptFlag)
+  {
+
+  }
+}

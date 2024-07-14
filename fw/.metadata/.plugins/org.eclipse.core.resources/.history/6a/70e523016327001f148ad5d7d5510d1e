@@ -1,0 +1,14 @@
+
+#include "app.h"
+#include "sensor.h"
+
+void taskCyclic()
+{
+  if(Sensor_newValue())
+  {
+    int position = Sensor_getPos();
+    float speed = Sensor_getSpeed();
+    Sensor_clear();
+    LOG_DBG_ENTRY()
+  }
+}

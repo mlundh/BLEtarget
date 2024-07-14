@@ -1,0 +1,34 @@
+/*
+ * sensor.h
+ *
+ *  Created on: May 27, 2024
+ *      Author: mlundh
+ *
+ * The sensor will register any hit on the front row (scoring) and back row(side indication) and measure the time between the two if the pellet
+ * triggers both.
+ *
+ * It uses one timer to both time the pellet between the rows and to use as a 1 ms timeout to allow for registration from multiple channels
+ * triggered by the same pellet.
+ *
+ */
+
+#ifndef SENSOR_H_
+#define SENSOR_H_
+#include "main.h"
+#define NR_CHANNELS (10)
+#define BACK_CHANNEL (9)
+typedef struct
+{
+  TIM_TypeDef *timer = TIM2; // 64MHz timer used to measure speed of pellet. Also used for timeout to report the hit.
+  uint8_t buffer[NR_CHANNELS] = {0};       // position of the hit. 0 Center, 1-7 channel, 8 back.
+  uint8_t newValue = 0;
+  uint32_t speed = 0;
+}sensor_t;
+
+sensor_t sensor;
+
+int Sensor_getPos();
+float Sensor_getSpeed();
+unsigned int Sensor_newValue();
+
+#endif /* SENSOR_H_ */

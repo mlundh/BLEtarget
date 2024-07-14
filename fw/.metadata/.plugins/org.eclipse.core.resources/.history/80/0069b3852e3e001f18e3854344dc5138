@@ -1,0 +1,17 @@
+/*
+ * i2c_master.c
+ *
+ *  Created on: Jul 9, 2024
+ *      Author: mlundh
+ */
+
+i2cM_t I2C_master_obj;
+
+
+void I2C_master_init(I2C_HandleTypeDef *hi2c);
+
+void I2C_master_read(uint8_t *buffer, uint16_t Size, uint32_t Timeout)
+{
+  HAL_I2C_Master_Receive(hi2c, slaveAddr, buffer, DATA_LENGTH, 500);
+
+}

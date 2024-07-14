@@ -1,0 +1,132 @@
+2024-05-27 20:31:28,029 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 296784080 Bytes (895483904)
+2024-05-27 20:31:29,809 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 319852752 Bytes (895483904)
+2024-05-27 20:31:31,774 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 380143824 Bytes (895483904)
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SEQUENCER
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STM32_WPAN
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: HSEM
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: MEMORYMAP
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8WB5
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8WB5
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_Device
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: IPCC
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RF
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-05-27 20:31:31,873 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TINY_LPM
+2024-05-27 20:31:31,874 [INFO] CodeGenerator:807 - code generatio: config db path: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db/
+2024-05-27 20:31:31,939 [WARN] IP:2120 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2024-05-27 20:31:31,943 [WARN] IP:2120 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2024-05-27 20:31:31,946 [WARN] IP:2120 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2024-05-27 20:31:31,950 [WARN] IP:2120 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2024-05-27 20:31:32,110 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/license.tmp_save
+2024-05-27 20:31:32,235 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/license.tmp
+2024-05-27 20:31:32,310 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/gpio.tmp_save
+2024-05-27 20:31:32,390 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/gpio.tmp
+2024-05-27 20:31:32,533 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_vars.tmp_save
+2024-05-27 20:31:32,617 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_vars.tmp
+2024-05-27 20:31:32,618 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_inc.tmp_save
+2024-05-27 20:31:32,708 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_inc.tmp
+2024-05-27 20:31:32,709 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_HalInit.tmp_save
+2024-05-27 20:31:32,793 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_HalInit.tmp
+2024-05-27 20:31:32,794 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_Msp.tmp_save
+2024-05-27 20:31:32,884 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/usb_Msp.tmp
+2024-05-27 20:31:33,006 [WARN] IPConfigManager:98 - WARNING: Missing Config File for MEMORYMAP ip!!
+2024-05-27 20:31:33,006 [WARN] IP:2120 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2024-05-27 20:31:33,044 [WARN] IPConfigManager:98 - WARNING: Missing Config File for RF ip!!
+2024-05-27 20:31:33,502 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-05-27 20:31:33,536 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-05-27 20:31:33,567 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-05-27 20:31:33,590 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_common.h_save
+2024-05-27 20:31:33,643 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_common.h
+2024-05-27 20:31:33,643 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_debug.h_save
+2024-05-27 20:31:33,687 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_debug.h
+2024-05-27 20:31:33,687 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_conf.h_save
+2024-05-27 20:31:33,771 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_conf.h
+2024-05-27 20:31:33,773 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_entry.h_save
+2024-05-27 20:31:33,819 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/app_entry.h
+2024-05-27 20:31:33,820 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/hw_conf.h_save
+2024-05-27 20:31:33,868 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/hw_conf.h
+2024-05-27 20:31:33,869 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/hw_if.h_save
+2024-05-27 20:31:33,912 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/hw_if.h
+2024-05-27 20:31:33,913 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/utilities_conf.h_save
+2024-05-27 20:31:33,957 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/utilities_conf.h
+2024-05-27 20:31:33,958 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32_lpm_if.h_save
+2024-05-27 20:31:33,998 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32_lpm_if.h
+2024-05-27 20:31:33,999 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/app_entry.c_save
+2024-05-27 20:31:34,051 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/app_entry.c
+2024-05-27 20:31:34,052 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/app_debug.c_save
+2024-05-27 20:31:34,096 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/app_debug.c
+2024-05-27 20:31:34,097 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/hw_timerserver.c_save
+2024-05-27 20:31:34,145 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/hw_timerserver.c
+2024-05-27 20:31:34,146 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32_lpm_if.c_save
+2024-05-27 20:31:34,189 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32_lpm_if.c
+2024-05-27 20:31:34,190 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/app_ble.c_save
+2024-05-27 20:31:34,296 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/app_ble.c
+2024-05-27 20:31:34,298 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/app_ble.h_save
+2024-05-27 20:31:34,341 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/app_ble.h
+2024-05-27 20:31:34,341 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/ble_conf.h_save
+2024-05-27 20:31:34,387 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/ble_conf.h
+2024-05-27 20:31:34,388 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/ble_dbg_conf.h_save
+2024-05-27 20:31:34,431 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/ble_dbg_conf.h
+2024-05-27 20:31:34,432 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/tl_dbg_conf.h_save
+2024-05-27 20:31:34,474 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/tl_dbg_conf.h
+2024-05-27 20:31:34,475 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/template_server_app.h_save
+2024-05-27 20:31:34,516 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/template_server_app.h
+2024-05-27 20:31:34,517 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_stm.c_save
+2024-05-27 20:31:35,545 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_stm.c
+2024-05-27 20:31:35,546 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_stm.h_save
+2024-05-27 20:31:35,712 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_stm.h
+2024-05-27 20:31:35,712 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_app.c_save
+2024-05-27 20:31:35,846 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_app.c
+2024-05-27 20:31:35,847 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_app.h_save
+2024-05-27 20:31:35,890 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/App/custom_app.h
+2024-05-27 20:31:35,890 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/Target/hw_ipcc.c_save
+2024-05-27 20:31:35,937 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/STM32_WPAN/Target/hw_ipcc.c
+2024-05-27 20:31:35,941 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-05-27 20:31:35,943 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usb_device.c_save
+2024-05-27 20:31:36,011 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usb_device.c
+2024-05-27 20:31:36,012 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usb_device.h_save
+2024-05-27 20:31:36,058 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usb_device.h
+2024-05-27 20:31:36,058 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/Target/usbd_conf.h_save
+2024-05-27 20:31:36,101 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/Target/usbd_conf.h
+2024-05-27 20:31:36,102 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/Target/usbd_conf.c_save
+2024-05-27 20:31:36,152 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/Target/usbd_conf.c
+2024-05-27 20:31:36,154 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_desc.h_save
+2024-05-27 20:31:36,196 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_desc.h
+2024-05-27 20:31:36,196 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_desc.c_save
+2024-05-27 20:31:36,243 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_desc.c
+2024-05-27 20:31:36,244 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_cdc_if.h_save
+2024-05-27 20:31:36,287 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_cdc_if.h
+2024-05-27 20:31:36,287 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_cdc_if.c_save
+2024-05-27 20:31:36,332 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/USB_Device/App/usbd_cdc_if.c
+2024-05-27 20:31:36,338 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32wbxx_it.c_save
+2024-05-27 20:31:36,515 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32wbxx_it.c
+2024-05-27 20:31:36,516 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32wbxx_it.h_save
+2024-05-27 20:31:36,590 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32wbxx_it.h
+2024-05-27 20:31:36,601 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32wbxx_hal_msp.c_save
+2024-05-27 20:31:36,673 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/stm32wbxx_hal_msp.c
+2024-05-27 20:31:36,674 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/system.tmp_save
+2024-05-27 20:31:36,718 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/MXTmpFiles/system.tmp
+2024-05-27 20:31:36,719 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32_assert.h_save
+2024-05-27 20:31:36,761 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32_assert.h
+2024-05-27 20:31:36,763 [INFO] CodeEngine:311 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32wbxx_hal_conf.h_save
+2024-05-27 20:31:36,808 [INFO] CodeEngine:335 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/stm32wbxx_hal_conf.h
+2024-05-27 20:31:36,816 [WARN] IPConfigManager:2982 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2024-05-27 20:31:36,825 [WARN] IPConfigManager:3513 - IP not found : TIM
+2024-05-27 20:31:36,825 [WARN] CodeGenerator:3951 - IP not found : null
+2024-05-27 20:31:36,827 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/main.h_save
+2024-05-27 20:31:36,875 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Inc/main.h
+2024-05-27 20:31:36,876 [INFO] CodeEngine:255 - oldGeneratedFile, /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/main.c_save
+2024-05-27 20:31:36,961 [INFO] CodeEngine:279 - Generated code: /home/mlundh/BLEtarget/fw/BleTarget/Core/Src/main.c
+2024-05-27 20:31:37,124 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 29mS.
+2024-05-27 20:31:37,126 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-05-27 20:31:37,191 [INFO] ConfigFileManager:1503 - The Die is : DIE495
+2024-05-27 20:31:38,021 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 895mS.
+2024-05-27 20:31:38,021 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-05-27 20:31:38,023 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.

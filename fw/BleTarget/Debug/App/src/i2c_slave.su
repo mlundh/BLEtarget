@@ -1,0 +1,8 @@
+../App/src/i2c_slave.c:12:6:I2C_slave_init	16	static
+../App/src/i2c_slave.c:23:6:I2C_slave_updateData	16	static
+../App/src/i2c_slave.c:28:13:ResetI2C	16	static
+../App/src/i2c_slave.c:37:6:HAL_I2C_AddrCallback	16	static
+../App/src/i2c_slave.c:51:6:HAL_I2C_SlaveRxCpltCallback	16	static
+../App/src/i2c_slave.c:57:6:HAL_I2C_ListenCpltCallback	16	static
+../App/src/i2c_slave.c:62:6:HAL_I2C_SlaveTxCpltCallback	16	static
+../App/src/i2c_slave.c:67:6:HAL_I2C_ErrorCallback	24	static

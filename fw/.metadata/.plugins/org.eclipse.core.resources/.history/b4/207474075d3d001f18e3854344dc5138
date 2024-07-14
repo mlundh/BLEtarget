@@ -1,0 +1,20 @@
+
+#include "app.h"
+#include "sensor.h"
+
+void app_init(I2C_HandleTypeDef* hi2c1)
+{
+
+}
+
+
+void taskCyclic()
+{
+  if(Sensor_newValue())
+  {
+    int position = Sensor_getPos();
+    float speed = Sensor_getSpeed();
+    Sensor_clear();
+    LOG_ENTRY("Position: %d, Speed: %d", position, (int)speed);
+  }
+}

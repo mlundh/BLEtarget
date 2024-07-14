@@ -1,0 +1,12 @@
+
+#include "app.h"
+#include "sensor.h"
+
+void taskCyclic()
+{
+  if(Sensor_newValue)
+  {
+
+    LOG_DBG_ENTRY()
+  }
+}

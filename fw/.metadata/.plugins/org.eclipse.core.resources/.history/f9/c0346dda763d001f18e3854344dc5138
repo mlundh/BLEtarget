@@ -1,0 +1,28 @@
+
+#include "app.h"
+#include "sensor.h"
+#include "i2c_slave.h"
+
+
+uint8_t* serialize_int32_t(uint8_t *buffer, uint32_t* size, int32_t *value);
+uint8_t* deserialize_int32_t(uint8_t *buffer, uint32_t* size, int32_t* value);
+
+
+
+void app_init(I2C_HandleTypeDef* hi2c)
+{
+  i2c_slave_init(hi2c);
+
+}
+
+
+void taskCyclic()
+{
+  if(Sensor_newValue())
+  {
+    int position = Sensor_getPos();
+    float speed = Sensor_getSpeed();
+    Sensor_clear();
+    LOG_ENTRY("Position: %d, Speed: %d", position, (int)speed);
+  }
+}

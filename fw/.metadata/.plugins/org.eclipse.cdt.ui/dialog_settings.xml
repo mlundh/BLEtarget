@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner" value="0"/>
+	<item key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node" value="0"/>
+	<item key="org.eclipse.cdt.uiformatter_page.line_wrapping_tab_page.last_category_index" value="1"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus" value="4"/>
+	<item key="formatter_page.modify_dialog_tab_page.last_focus_index" value="3"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_width" value="1327"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="1020"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="421"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="27"/>
+	<item key="LastUsedSourceTemplate" value="Default C source template"/>
+	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="EXTI9_5_IRQHandler"/>
+			<item value="HAL_TIM_PeriodElapsedCallback"/>
+			<item value="SysTick_Handler"/>
+			<item value="TIM1_UP_TIM16_IRQHandler"/>
+			<item value="CNT"/>
+			<item value="HAL_TIM_Base_Stop_IT"/>
+			<item value="HAL_TIM_IRQHandler"/>
+			<item value="HAL_TIM_Base_Start_IT"/>
+			<item value="HAL_GPIO_EXTI_IRQHandler"/>
+			<item value="HAL_TIM_RegisterCallback"/>
+		</list>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="askReindex.detail" value="0"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item key="DIALOG_X_ORIGIN" value="887"/>
+		<item key="DIALOG_Y_ORIGIN" value="371"/>
+		<item key="DIALOG_WIDTH" value="899"/>
+		<item key="DIALOG_HEIGHT" value="478"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item key="size.width" value="537"/>
+		<item key="size.height" value="180"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="CRenameRefactoringInputPage">
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.typehierarchy.OpenTypeInHierarchyActionSettings">
+		<item key="show_namespaces" value="false"/>
+		<item key="show_classes" value="true"/>
+		<item key="show_structs" value="true"/>
+		<item key="show_typedefs" value="true"/>
+		<item key="show_enums" value="true"/>
+		<item key="show_unions" value="true"/>
+		<item key="show_functions" value="false"/>
+		<item key="show_variables" value="false"/>
+		<item key="show_enumerators" value="false"/>
+		<item key="show_macros" value="false"/>
+		<item key="show_lowlevel" value="true"/>
+		<item key="x" value="1522"/>
+		<item key="y" value="261"/>
+		<item key="width" value="469"/>
+		<item key="height" value="709"/>
+	</section>
+</section>

@@ -1,0 +1,3 @@
+buildConsole/keepLog=true
+buildConsole/logLocation=/home/mlundh/BLEtarget/fw/.metadata/.plugins/org.eclipse.cdt.ui/BleTarget.build.log
+eclipse.preferences.version=1

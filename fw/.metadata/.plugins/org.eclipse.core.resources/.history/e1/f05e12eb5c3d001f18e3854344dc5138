@@ -1,0 +1,13 @@
+#ifndef APP_H
+#define APP_H
+
+#include "main.h"
+#include "sensor.h"
+/**
+ * @brief Cyclic task called in the while-true loop in main.
+ *
+ *
+ */
+void taskCyclic();
+
+#endif //APP_H

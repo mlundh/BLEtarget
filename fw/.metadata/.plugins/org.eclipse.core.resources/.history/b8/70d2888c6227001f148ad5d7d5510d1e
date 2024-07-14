@@ -1,0 +1,12 @@
+
+#include "app.h"
+#include "sensor.h"
+#include "usbd_cdc_if.h"
+
+void taskCyclic()
+{
+  if(interruptFlag)
+  {
+
+  }
+}
