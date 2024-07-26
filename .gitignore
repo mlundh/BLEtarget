@@ -12,13 +12,54 @@ fp-info-cache# Netlist files (exported from Eeschema)
 *.net# Autorouter files (exported from Pcbnew)
 *.dsn
 *.ses
-# Eclipse*.metadata*
+# Eclipse
 *.metadata/
 fw/BleTarget/Debug/
 fw/.metadata
-sw/build-*
+sw/build-Bullseye*/
+sw/build-Bullseye-Desktop-Debug/
 .settings/
 hw/ElectronicBLETarget-backups
+
+
+# C++ objects and libs
+*.slo
+*.lo
 *.o
-*.su
-*~
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
+
+
+# Qt-es
+object_script.*.Release
+object_script.*.Debug
+*_plugin_import.cpp
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qmlc
+*.jsc
+Makefile*
+*build-*
+*.qm
+*.prl
+
+
+# QtCreator
+*.autosave
+
+# QtCreator CMake
+CMakeLists.txt.user*
