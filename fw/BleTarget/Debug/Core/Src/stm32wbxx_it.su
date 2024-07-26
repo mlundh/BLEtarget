@@ -14,7 +14,7 @@
 ../Core/Src/stm32wbxx_it.c:264:6:EXTI4_IRQHandler	8	static
 ../Core/Src/stm32wbxx_it.c:278:6:USB_LP_IRQHandler	8	static
 ../Core/Src/stm32wbxx_it.c:292:6:EXTI9_5_IRQHandler	8	static
-../Core/Src/stm32wbxx_it.c:308:6:TIM1_UP_TIM16_IRQHandler	4	static
+../Core/Src/stm32wbxx_it.c:308:6:TIM1_UP_TIM16_IRQHandler	8	static
 ../Core/Src/stm32wbxx_it.c:322:6:TIM2_IRQHandler	8	static
 ../Core/Src/stm32wbxx_it.c:335:6:I2C1_EV_IRQHandler	8	static
 ../Core/Src/stm32wbxx_it.c:349:6:I2C1_ER_IRQHandler	8	static

@@ -12,8 +12,13 @@ fp-info-cache# Netlist files (exported from Eeschema)
 *.net# Autorouter files (exported from Pcbnew)
 *.dsn
 *.ses
-# Eclipse
-.metadata
-.settings
+# Eclipse*.metadata*
+*.metadata/
+fw/BleTarget/Debug/
+fw/.metadata
+sw/build-*
+.settings/
 hw/ElectronicBLETarget-backups
+*.o
+*.su
 *~

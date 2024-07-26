@@ -19,6 +19,7 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="timer2UpdateISR"/>
 			<item value="EXTI9_5_IRQHandler"/>
 			<item value="HAL_TIM_PeriodElapsedCallback"/>
 			<item value="SysTick_Handler"/>
@@ -42,7 +43,7 @@
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item key="size.width" value="537"/>
+		<item key="size.width" value="806"/>
 		<item key="size.height" value="180"/>
 	</section>
 	<section name="RenameInformationPopup">

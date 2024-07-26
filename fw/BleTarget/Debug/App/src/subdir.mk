@@ -9,21 +9,24 @@ C_SRCS += \
 ../App/src/i2c_master.c \
 ../App/src/i2c_slave.c \
 ../App/src/sensor.c \
-../App/src/serialization.c 
+../App/src/serialization.c \
+../App/src/slip_packet.c 
 
 OBJS += \
 ./App/src/app.o \
 ./App/src/i2c_master.o \
 ./App/src/i2c_slave.o \
 ./App/src/sensor.o \
-./App/src/serialization.o 
+./App/src/serialization.o \
+./App/src/slip_packet.o 
 
 C_DEPS += \
 ./App/src/app.d \
 ./App/src/i2c_master.d \
 ./App/src/i2c_slave.d \
 ./App/src/sensor.d \
-./App/src/serialization.d 
+./App/src/serialization.d \
+./App/src/slip_packet.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -33,7 +36,7 @@ App/src/%.o App/src/%.su App/src/%.cyclo: ../App/src/%.c App/src/subdir.mk
 clean: clean-App-2f-src
 
 clean-App-2f-src:
-	-$(RM) ./App/src/app.cyclo ./App/src/app.d ./App/src/app.o ./App/src/app.su ./App/src/i2c_master.cyclo ./App/src/i2c_master.d ./App/src/i2c_master.o ./App/src/i2c_master.su ./App/src/i2c_slave.cyclo ./App/src/i2c_slave.d ./App/src/i2c_slave.o ./App/src/i2c_slave.su ./App/src/sensor.cyclo ./App/src/sensor.d ./App/src/sensor.o ./App/src/sensor.su ./App/src/serialization.cyclo ./App/src/serialization.d ./App/src/serialization.o ./App/src/serialization.su
+	-$(RM) ./App/src/app.cyclo ./App/src/app.d ./App/src/app.o ./App/src/app.su ./App/src/i2c_master.cyclo ./App/src/i2c_master.d ./App/src/i2c_master.o ./App/src/i2c_master.su ./App/src/i2c_slave.cyclo ./App/src/i2c_slave.d ./App/src/i2c_slave.o ./App/src/i2c_slave.su ./App/src/sensor.cyclo ./App/src/sensor.d ./App/src/sensor.o ./App/src/sensor.su ./App/src/serialization.cyclo ./App/src/serialization.d ./App/src/serialization.o ./App/src/serialization.su ./App/src/slip_packet.cyclo ./App/src/slip_packet.d ./App/src/slip_packet.o ./App/src/slip_packet.su
 
 .PHONY: clean-App-2f-src
 

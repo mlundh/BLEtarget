@@ -74,7 +74,8 @@ App/src/app.o: ../App/src/app.c \
  /home/mlundh/BLEtarget/fw/BleTarget/App/i2c_slave.h \
  /home/mlundh/BLEtarget/fw/BleTarget/App/app.h \
  /home/mlundh/BLEtarget/fw/BleTarget/App/serialization.h \
- /home/mlundh/BLEtarget/fw/BleTarget/App/i2c_master.h
+ /home/mlundh/BLEtarget/fw/BleTarget/App/i2c_master.h \
+ /home/mlundh/BLEtarget/fw/BleTarget/App/slip_packet.h
 /home/mlundh/BLEtarget/fw/BleTarget/App/app.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
@@ -154,3 +155,4 @@ App/src/app.o: ../App/src/app.c \
 /home/mlundh/BLEtarget/fw/BleTarget/App/app.h:
 /home/mlundh/BLEtarget/fw/BleTarget/App/serialization.h:
 /home/mlundh/BLEtarget/fw/BleTarget/App/i2c_master.h:
+/home/mlundh/BLEtarget/fw/BleTarget/App/slip_packet.h:

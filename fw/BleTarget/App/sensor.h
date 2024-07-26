@@ -49,4 +49,7 @@ void Sensor_clear();
 
 void timer2UpdateISR();
 
+void timer16UpdateISR();
+
+
 #endif /* SENSOR_H_ */

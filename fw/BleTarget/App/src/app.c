@@ -4,15 +4,16 @@
 #include "i2c_slave.h"
 #include "serialization.h"
 #include "i2c_master.h"
+#include "slip_packet.h"
 
-uint8_t* serialize_int32_t(uint8_t *buffer, uint32_t* size, int32_t *value);
-uint8_t* deserialize_int32_t(uint8_t *buffer, uint32_t* size, int32_t* value);
+#define BUFFER_SIZE 12;
 
 static uint8_t master = 1;
-
+static SLIP_t *slipPacket = NULL;
 
 void app_init(I2C_HandleTypeDef* hi2c)
 {
+  slipPacket = Slip_Create(32);
   master = (GPIO_PIN_SET == HAL_GPIO_ReadPin(BOOT_GPIO_Port,BOOT_Pin));
   if(master)
   {
@@ -22,11 +23,7 @@ void app_init(I2C_HandleTypeDef* hi2c)
   {
     // any other init needed?
   }
-
-
-
 }
-
 
 void taskCyclic()
 {
@@ -43,7 +40,18 @@ void taskCyclic()
     int32_t speedInt = (int32_t)speed;
     int32_t speedDecimal = (int32_t)((speed - speedInt) * 1000);
 
-    LOG_ENTRY("Position: %d, Speed: %d,%d", (int)position, (int)speedInt, (int)speedDecimal);
+    int32_t zero = 0;
+    uint8_t message[12];
+    uint8_t *messageP = message;
+    uint32_t bufferSize = BUFFER_SIZE;
+    messageP = serialize_int32_t(messageP, &bufferSize, &position);
+    messageP = serialize_int32_t(messageP, &bufferSize, &zero);
+    messageP = serialize_int32_t(messageP, &bufferSize, &speedDecimal);
+
+    Slip_Packetize(message, 12, slipPacket);
+
+    CDC_Transmit_FS(slipPacket->payload, slipPacket->packetSize);
+    //LOG_ENTRY("Position: %d, Speed: %d,%d", (int)position, (int)speedInt, (int)speedDecimal);
     if(master)
     {
       serialize_int32_t(buffP, &buffSize, &position);
