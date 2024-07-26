@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;BleTarget/App/timers.h&apos;" deleteContents="false" description="Delete resource &apos;BleTarget/App/timers.h&apos;" element1="/BleTarget/App/timers.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1720555156863"/>&#x0A;<refactoring comment="Delete resource &apos;BleTarget/App/src/timers.c&apos;" deleteContents="false" description="Delete resource &apos;BleTarget/App/src/timers.c&apos;" element1="/BleTarget/App/src/timers.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1720555172024"/>
-</session>

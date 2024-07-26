@@ -1,2 +1,0 @@
-../App/src/i2c_master.c:12:6:I2C_master_init	1
-../App/src/i2c_master.c:20:6:I2C_master_read	1

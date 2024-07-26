@@ -1,2 +1,0 @@
-../App/src/app.c:14:6:app_init	16	static
-../App/src/app.c:28:6:taskCyclic	64	static
