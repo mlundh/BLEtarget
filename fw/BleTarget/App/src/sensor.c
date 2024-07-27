@@ -7,12 +7,11 @@
 
 #include "sensor.h"
 
+
 #define NR_CHANNELS (10)
 #define BACK_CHANNEL (9)
 #define TIME_PERIOD_S (0.000000015625)//(1/64 000 000)
 #define DISTANCE_ROWS_M (0.01)
-#define ERROR 88
-#define NOT_USED 99
 #define MM_BETWEEN_SENSORS (5)
 
 const uint16_t pins[]={CH_C_Pin, CH_1_Pin, CH_2_Pin, CH_3_Pin, CH_4_Pin, CH_5_Pin, CH_6_Pin, CH_7_Pin, CH_8_Pin, CH_B_Pin};
@@ -23,9 +22,10 @@ typedef struct {
   uint8_t buffer[NR_CHANNELS]; // position of the hit. 0 Center, 1-7 channel, 8 back.
   uint8_t newValue;
   uint32_t speed;
+  invalidateFcn invalidateData;
 } sensor_t;
 
-sensor_t sensor = { TIM2, TIM16, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 0, 0 };
+sensor_t sensor = { TIM2, TIM16, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 0, 0, NULL };
 
 /**
  * Disable all external interrupts to ensure we do not have concurrency issues.
@@ -36,6 +36,23 @@ void disableExternalInterrupt();
  * Re-enable the external interrupts. This should be done when all data from the external interrupts are handled.
  */
 void enableExternalInterrupt();
+
+void Sensor_init(uint8_t master, invalidateFcn invalidateCb)
+{
+  sensor.invalidateData = invalidateCb;
+
+  if(master)
+  {
+    // Master should have a longer timeout so that the slave definitely have data. Timeout 20ms.
+    sensor.timer->ARR = ((640000*2)-1);
+  }
+  else
+  {
+    // Slave has shorter timeout, 10ms.
+    sensor.timer->ARR = (640000-1);
+  }
+
+}
 
 // Multiple adjacent triggered photodiodes are allowed, this would represent a hit between the channels.
 // It is not allowed to have a gap in between. This would be an error condition.
@@ -90,11 +107,16 @@ int Sensor_getPos()
 
 float Sensor_getSpeed()
 {
-  float returnValue = 0;
-  if (sensor.newValue && sensor.buffer[BACK_CHANNEL])
+  float returnValue = SPEED_ERROR;
+  if (sensor.speed)
   {
     returnValue = DISTANCE_ROWS_M / (((float) sensor.speed) * TIME_PERIOD_S);
     //LOG_DBG_ENTRY("Speed = %d",(int)returnValue);
+    if(returnValue < 2 || returnValue > 500)
+    {
+      // Error. Only support speed values between 2 and 500 m/s.
+      returnValue = SPEED_ERROR;
+    }
   }
   return returnValue;
 }
@@ -210,6 +232,10 @@ void timer16UpdateISR()
   LL_TIM_SetCounter(sensor.timerLockout, 0);
   LL_TIM_DisableIT_UPDATE(sensor.timerLockout);
   LL_TIM_ClearFlag_UPDATE(sensor.timerLockout);
+  if(sensor.invalidateData)
+  {
+    sensor.invalidateData();
+  }
   enableExternalInterrupt();
 }
 

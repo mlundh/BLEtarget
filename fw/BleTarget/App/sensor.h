@@ -21,6 +21,19 @@
 #define SENSOR_H_
 #include "main.h"
 
+#define ERROR 88
+#define NOT_USED 99
+#define SPEED_ERROR -88
+
+typedef uint8_t (*invalidateFcn)();
+
+/**
+ * @brief Initialize the sensor module.
+ *
+ * @param master 1 if master, 0 if slave.
+ */
+void Sensor_init(uint8_t master, invalidateFcn invalidateCb);
+
 
 /**
  * Get the position of the last recorded hit.
