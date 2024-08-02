@@ -22,14 +22,8 @@ void Bullseye::addHit(int x, int y, int speed)
 
 void Bullseye::clear()
 {
-    if(!mHits.empty())
-    {
-        mHits.clear();
-    }
-    if(!mSpeed.empty())
-    {
-        //mSpeed.clear();
-    }
+    mHits.clear();
+    mSpeed.clear();
     update();
 }
 
