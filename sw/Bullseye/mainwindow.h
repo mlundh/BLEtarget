@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QSerialPort>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,7 +30,9 @@ public:
 
     void handleError(QSerialPort::SerialPortError error);
 
-    void showStatusMessage(const QString &message);
+    void heartbeatTimeout();
+    void heartbeatReceived();
+    void startHeartbeatTimer();
 
 signals:
     void newHit(int x, int y, int speed);
@@ -41,6 +44,6 @@ private:
     QSerialPort *mSerial;
     QByteArray mSerialDataBuff;
     bool mFoundStart;
-
+    QTimer mHeartbeatTimer;
 };
 #endif // MAINWINDOW_H

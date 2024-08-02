@@ -7,6 +7,10 @@
 #include "slippacket.h"
 #include "serialization.h"
 
+typedef enum{
+  hitData = 0,
+  heartbeat = 1
+}messageId_t;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -26,7 +30,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(mMenu, &menu::settingsButton, mSettings, &SettingsDialog::updatePortInfo);
     connect(mSerial, &QSerialPort::readyRead, this, &MainWindow::readData);
     connect(this, &MainWindow::newHit, ui->bullseye, &Bullseye::addHit);
+    connect(&mHeartbeatTimer, &QTimer::timeout, this, &MainWindow::heartbeatTimeout);
 
+    // TODO add file to save previous configruation.
+    //Try to open with default parameters.
+    openSerialPort();
 }
 
 MainWindow::~MainWindow()
@@ -48,8 +56,11 @@ void MainWindow::openSerialPort()
     if (mSerial->open(QIODevice::ReadWrite)) {
         //QMessageBox::information(this, tr("Info"), "Port open");
         qDebug() << "Port open";
+        ui->connection->setText("Connected");
+        startHeartbeatTimer();
     } else {
-        QMessageBox::critical(this, tr("Error"), mSerial->errorString());
+        QMessageBox::critical(this, tr("Error"), mSerial->errorString() + " Device: " + mSerial->portName());
+        ui->connection->setText("Error" + mSerial->errorString());
     }
 }
 
@@ -57,6 +68,8 @@ void MainWindow::closeSerialPort()
 {
     if (mSerial->isOpen())
         mSerial->close();
+    ui->connection->setText("Closed");
+    mHeartbeatTimer.stop();
     //QMessageBox::information(this, tr("Info"), "Disconnected");
 }
 
@@ -84,22 +97,34 @@ void MainWindow::readData()
 
                     // TODO make a proper parser, and allow debug messages as well.
 
-                    if(data.size() == 3*sizeof(int32_t))
+                    if(data.size() == 4*sizeof(int32_t))
                     {
                         uint8_t* toDeserialize = (uint8_t*)data.data();
                         qDebug() << mSerialDataBuff.toHex();
                         uint32_t size = data.size();
 
-                        int32_t xValue=0;
-                        int32_t yValue=0;
-                        int32_t speedValue=0;
+                        int32_t messageId = 0;
+                        toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &messageId);
 
-                        toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &xValue);
-                        toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &yValue);
-                        toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &speedValue);
+                        if(messageId == hitData)
+                        {
+                            int32_t xValue=0;
+                            int32_t yValue=0;
+                            int32_t speedValue=0;
 
-                        emit newHit(xValue, yValue, speedValue);
-                        qDebug() << "New hit. X: " << xValue << " Y: " << yValue << " speed: " << speedValue;
+                            toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &xValue);
+                            toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &yValue);
+                            serialization::deserialize_int32_t(toDeserialize, &size, &speedValue);
+
+                            emit newHit(xValue, yValue, speedValue);
+                            qDebug() << "New hit. X: " << xValue << " Y: " << yValue << " speed: " << speedValue;
+                            heartbeatReceived();// new data is also a proof that the connection works.
+                        }
+                        else if (messageId == heartbeat)
+                        {
+                            heartbeatReceived();
+                        }
+
                     }
                     else
                     {
@@ -145,5 +170,22 @@ void MainWindow::handleError(QSerialPort::SerialPortError error)
     }
 }
 
+void MainWindow::heartbeatTimeout()
+{
+    mHeartbeatTimer.stop();
+    QMessageBox::information(this, tr("Heartbeat timeout"), "Heartbeat signal timeout, please check target power and position.");
+    startHeartbeatTimer(); // restart once the message box returns.
+}
 
+void MainWindow::heartbeatReceived()
+{
+    startHeartbeatTimer();
+    qDebug() << "Heartbeat received.";
+}
+
+
+void MainWindow::startHeartbeatTimer()
+{
+    mHeartbeatTimer.start(4000);
+}
 

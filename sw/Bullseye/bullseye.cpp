@@ -4,7 +4,12 @@
 Bullseye::Bullseye(QWidget *parent)
     : QWidget{parent}
 {
+    mHits.push_back(QPoint(6,0));
+    mHits.push_back(QPoint(0,12));
+    mHits.push_back(QPoint(24,0));
+    mHits.push_back(QPoint(0,0));
 
+    mSpeed.push_back(200);
 }
 
 void Bullseye::addHit(int x, int y, int speed)
@@ -17,7 +22,14 @@ void Bullseye::addHit(int x, int y, int speed)
 
 void Bullseye::clear()
 {
-    mHits.clear();
+    if(!mHits.empty())
+    {
+        mHits.clear();
+    }
+    if(!mSpeed.empty())
+    {
+        //mSpeed.clear();
+    }
     update();
 }
 
@@ -88,13 +100,19 @@ void Bullseye::paintEvent(QPaintEvent *event)
 
     painter.setPen(Qt::NoPen);
     painter.setBrush(Qt::gray);
-    // 10 rings with 5mm increase in radius => 50mm radius, scale accordingly.
+    // 10 rings with 6mm increase in radius => 50mm radius, scale accordingly.
     // the point is expressed in mm from center.
-
-    const float scaleFactor = (((float)sizeOrig/2)/50); // radius of widget is size/2, radius of target is 50mm.
+    int index;
+    const float scaleFactor = (((float)sizeOrig/2)/60); // radius of widget is size/2, radius of target is 60mm.
     foreach (auto point, mHits) {
+        index++;
         QPointF pointf(point);
-        painter.drawEllipse(pointf*scaleFactor, size/3, size/3);
+        painter.drawEllipse(pointf*scaleFactor, size/2, size/2);
+        painter.setPen(Qt::black);
+        painter.drawText(QRectF(pointf*scaleFactor - QPointF(size/2, size/2), QSizeF(size, size)), Qt::AlignCenter, QString::number(index));
+        //painter.drawRect(QRectF(pointf*scaleFactor - QPointF(size/2, size/2), QSizeF(size, size)));
+
+        painter.setPen(Qt::NoPen);
     }
     if(!mHits.empty())
     {
@@ -102,10 +120,20 @@ void Bullseye::paintEvent(QPaintEvent *event)
         painter.setBrush(Qt::magenta);
         QVector<QPoint>::reverse_iterator iter = mHits.rbegin();
         QPointF pointf(*iter);
-        painter.drawEllipse(pointf*scaleFactor, size/2, size/2);
+        painter.drawEllipse(pointf*scaleFactor, size/1.5, size/1.5);
+
+        painter.setPen(Qt::black);
+        painter.drawText(QRectF(pointf*scaleFactor - QPointF(size/2, size/2), QSizeF(size, size)), Qt::AlignCenter, QString::number(index));
+        painter.setPen(Qt::NoPen);
     }
 
 
+    if(!mSpeed.empty())
+    {
+        painter.setPen(Qt::black);
+        painter.drawText(QRectF(QPointF(sizeOrig/2 - size*2, -sizeOrig/2 + size/2) , QSizeF(size*3, size)), Qt::AlignCenter, QString::number(mSpeed.last()) + "m/s");
+        painter.setPen(Qt::NoPen);
+    }
 
 
 
@@ -113,3 +141,4 @@ void Bullseye::paintEvent(QPaintEvent *event)
 
 
 }
+;

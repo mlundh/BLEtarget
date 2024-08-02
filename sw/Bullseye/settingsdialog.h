@@ -55,6 +55,7 @@ private:
     void fillPortsInfo();
     void updateSettings();
 
+
 private:
     Ui::SettingsDialog *m_ui = nullptr;
     Settings m_currentSettings;

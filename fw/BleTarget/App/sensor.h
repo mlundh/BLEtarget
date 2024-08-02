@@ -25,7 +25,7 @@
 #define NOT_USED 99
 #define SPEED_ERROR -88
 
-typedef uint8_t (*invalidateFcn)();
+typedef void (*invalidateFcn)();
 
 /**
  * @brief Initialize the sensor module.

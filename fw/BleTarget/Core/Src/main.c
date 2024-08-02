@@ -63,6 +63,7 @@ static void MX_RTC_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM16_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM17_Init(void);
 static void MX_RF_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -117,9 +118,10 @@ int main(void)
   MX_USB_Device_Init();
   MX_TIM16_Init();
   MX_TIM2_Init();
+  MX_TIM17_Init();
   MX_RF_Init();
   /* USER CODE BEGIN 2 */
-  app_init(&hi2c1);
+  app_init(&hi2c1, &huart1);
   /* USER CODE END 2 */
 
   /* Init code for STM32_WPAN */
@@ -430,6 +432,43 @@ static void MX_TIM16_Init(void)
 }
 
 /**
+  * @brief TIM17 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM17_Init(void)
+{
+
+  /* USER CODE BEGIN TIM17_Init 0 */
+
+  /* USER CODE END TIM17_Init 0 */
+
+  LL_TIM_InitTypeDef TIM_InitStruct = {0};
+
+  /* Peripheral clock enable */
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM17);
+
+  /* TIM17 interrupt Init */
+  NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
+
+  /* USER CODE BEGIN TIM17_Init 1 */
+
+  /* USER CODE END TIM17_Init 1 */
+  TIM_InitStruct.Prescaler = 6399;
+  TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
+  TIM_InitStruct.Autoreload = 20000;
+  TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
+  TIM_InitStruct.RepetitionCounter = 0;
+  LL_TIM_Init(TIM17, &TIM_InitStruct);
+  LL_TIM_DisableARRPreload(TIM17);
+  /* USER CODE BEGIN TIM17_Init 2 */
+
+  /* USER CODE END TIM17_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -445,7 +484,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;

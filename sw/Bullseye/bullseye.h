@@ -25,6 +25,8 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     QVector<QPoint> mHits;
+    QVector<int32_t> mSpeed;
+
 
 signals:
 

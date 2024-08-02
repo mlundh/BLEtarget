@@ -6,15 +6,24 @@
 #include "i2c_master.h"
 #include "slip_packet.h"
 
-#define MESSAGE_SIZE 12
+#define MESSAGE_SIZE 16
 
 static uint8_t master = 1;
 static SLIP_t *slipPacket = NULL;
+static UART_HandleTypeDef *uartInstance = NULL;
+static TIM_TypeDef *timer = TIM17; // 2s timer used to transmit heartbeat.
+static uint8_t newHeartbeat = 0;
+typedef enum{
+  hitData = 0,
+  heartbeat = 1
+}messageId_t;
+
 
 void invalidateData();
 
-void app_init(I2C_HandleTypeDef* hi2c)
+void app_init(I2C_HandleTypeDef* hi2c, UART_HandleTypeDef* huart)
 {
+  uartInstance = huart;
   slipPacket = Slip_Create(32);
   master = (GPIO_PIN_RESET == HAL_GPIO_ReadPin(BOOT_GPIO_Port,BOOT_Pin));
 
@@ -24,6 +33,12 @@ void app_init(I2C_HandleTypeDef* hi2c)
   {
     I2C_master_init(hi2c);
     Sensor_init(master, NULL); // do not need to invalidate data as the master.
+
+    // Start the heartbeat timer.
+    LL_TIM_SetCounter(timer, 0);
+    LL_TIM_ClearFlag_UPDATE(timer);
+    LL_TIM_EnableIT_UPDATE(timer);
+    LL_TIM_EnableCounter(timer);
   }
   else
   {
@@ -34,6 +49,11 @@ void app_init(I2C_HandleTypeDef* hi2c)
 
 void taskCyclic()
 {
+  if(newHeartbeat)
+  {
+    newHeartbeat = 0;
+    sendHeartbeat();
+  }
   if(Sensor_newValue())
   {
     int32_t position = Sensor_getPos();
@@ -69,15 +89,17 @@ void taskCyclic()
       uint8_t message[MESSAGE_SIZE];
       uint8_t *messageP = message;
       uint32_t messageSize = MESSAGE_SIZE;
+      int32_t messageId = hitData;
 
+      messageP = serialize_int32_t(messageP, &messageSize, &messageId);
       messageP = serialize_int32_t(messageP, &messageSize, &position);
       messageP = serialize_int32_t(messageP, &messageSize, &positionY);
       messageP = serialize_int32_t(messageP, &messageSize, &speed);
 
-      Slip_Packetize(message, 12, slipPacket);
+      Slip_Packetize(message, MESSAGE_SIZE, slipPacket);
 
       CDC_Transmit_FS(slipPacket->payload, slipPacket->packetSize);
-
+      HAL_UART_Transmit(uartInstance, slipPacket->payload, slipPacket->packetSize, 1000);
     }
     else
     {
@@ -94,6 +116,7 @@ void taskCyclic()
 
 
   }
+
 }
 
 void invalidateData()
@@ -110,3 +133,30 @@ void invalidateData()
 
   I2C_slave_updateData(buffer);
 }
+
+void sendHeartbeat()
+{
+  // Transmit data, serial over USB
+  uint8_t message[MESSAGE_SIZE];
+  uint8_t *messageP = message;
+  uint32_t messageSize = MESSAGE_SIZE;
+  int32_t messageId = heartbeat;
+  int32_t zero = 0;
+
+  messageP = serialize_int32_t(messageP, &messageSize, &messageId);
+  messageP = serialize_int32_t(messageP, &messageSize, &zero);
+  messageP = serialize_int32_t(messageP, &messageSize, &zero);
+  messageP = serialize_int32_t(messageP, &messageSize, &zero);
+
+  Slip_Packetize(message, MESSAGE_SIZE, slipPacket);
+
+  CDC_Transmit_FS(slipPacket->payload, slipPacket->packetSize);
+  HAL_UART_Transmit(uartInstance, slipPacket->payload, slipPacket->packetSize, 1000);
+}
+
+void timer17UpdateISR()
+{
+  LL_TIM_ClearFlag_UPDATE(timer);
+  newHeartbeat = 1;
+}
+
