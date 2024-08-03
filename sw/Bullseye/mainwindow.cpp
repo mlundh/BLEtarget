@@ -186,6 +186,6 @@ void MainWindow::heartbeatReceived()
 
 void MainWindow::startHeartbeatTimer()
 {
-    mHeartbeatTimer.start(4000);
+    mHeartbeatTimer.start(4500);
 }
 

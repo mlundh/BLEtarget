@@ -15,7 +15,7 @@ Bullseye::Bullseye(QWidget *parent)
 void Bullseye::addHit(int x, int y, int speed)
 {
     QPoint point(x,y); // scale in the paintEvent member.
-
+    mSpeed.push_back(speed);
     mHits.push_back(point);
     update();
 }
@@ -96,7 +96,7 @@ void Bullseye::paintEvent(QPaintEvent *event)
     painter.setBrush(Qt::gray);
     // 10 rings with 6mm increase in radius => 50mm radius, scale accordingly.
     // the point is expressed in mm from center.
-    int index;
+    int index = 0;
     const float scaleFactor = (((float)sizeOrig/2)/60); // radius of widget is size/2, radius of target is 60mm.
     foreach (auto point, mHits) {
         index++;
