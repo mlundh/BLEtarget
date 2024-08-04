@@ -1,9 +1,7 @@
 [Desktop Entry]
 Name="Bullseye Update"
 Comment=My comment
-Icon=~/BLEtarget/sw/Bullseye/utils/update.svg
-Exec=~/BLEtarget/sw/Bullseye/updateBullseye.sh
+Icon=/user/target/Home/BLEtarget/sw/Bullseye/utils/update.svg
+Exec=/user/target/Home/BLEtarget/sw/Bullseye/updateBullseye.sh
 Type=Application
-Encoding=UTF-8
 Terminal=true
-Categories=None;
