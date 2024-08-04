@@ -20,7 +20,7 @@ sw/build-Bullseye*/
 sw/build-Bullseye-Desktop-Debug/
 .settings/
 hw/ElectronicBLETarget-backups
-
+sw/Bullseye/build/
 
 # C++ objects and libs
 *.slo

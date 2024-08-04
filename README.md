@@ -18,3 +18,24 @@ The firmware developed in CubeIDE.
 
 ## SW
 The user interface is called Bullseye and developed in Qt using widgets.
+
+### Dependencies
+qt6-base-dev-tools
+qt6-serialport-dev
+cmake
+
+### Raspberry pi Zero 2W with Hyperpixel 4.0 Square
+#### Increase swap file:
+Edit /etc/dphys-swapfile to change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=2048. After making the change, restart the Pi.
+#### Enable Hyperpixel
+Add one line in /boot/firmware/config.txt:
+dtoverlay=vc4-kms-dpi-hyperpixel4sq
+#### Convenience
+Enable one-click open of files: 
+In Accessories select File Manager
+In File Manage select Preference.
+Select "Open Files with One Click"
+#### Add desktop shortcut
+Add desktop shortcut by draging the application to the desktop. Also drag the updateBullseye.sh script to the desktop.
+
+#### Start at bootup

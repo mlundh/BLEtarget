@@ -4,12 +4,7 @@
 Bullseye::Bullseye(QWidget *parent)
     : QWidget{parent}
 {
-    mHits.push_back(QPoint(6,0));
-    mHits.push_back(QPoint(0,12));
-    mHits.push_back(QPoint(24,0));
-    mHits.push_back(QPoint(0,0));
 
-    mSpeed.push_back(200);
 }
 
 void Bullseye::addHit(int x, int y, int speed)
