@@ -5,12 +5,11 @@ echo "Hold on ..."
 cd ~/BLEtarget/sw/Bullseye
 
 git pull
-echo "Building the application"
-if [[ -e ./build ]]; then
-    rm -rf build
-fi
 
-mkdir build
+echo "Building the application"
+
+mkdir -p build
+
 cd build
 cmake ..
 make

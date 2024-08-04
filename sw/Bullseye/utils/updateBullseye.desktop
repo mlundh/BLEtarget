@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Bullseye
-Icon=/user/target/Home/BLEtarget/sw/Bullseye/utils/bullseye.svg
-Exec=/user/target/Home/BLEtarget/sw/Bullseye/build/Bullseye
+Icon=/home/target/BLEtarget/sw/Bullseye/utils/update.svg
+Exec=sh -c "lxterminal -e /home/target/BLEtarget/sw/Bullseye/utils/updateBullseye.sh"
 Type=Application
 Terminal=false
