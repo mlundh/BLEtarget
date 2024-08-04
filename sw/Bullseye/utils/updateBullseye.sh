@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo "Updating Bullseye"
 echo "Hold on ..."
 

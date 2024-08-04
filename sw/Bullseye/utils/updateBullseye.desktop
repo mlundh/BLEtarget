@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bullseye
+Icon=~/BLEtarget/sw/Bullseye/utils/bullseye.svg
+Exec=~/BLEtarget/sw/Bullseye/build/Bullseye
+Type=Application
+Encoding=UTF-8
+Terminal=false
+Categories=None;
