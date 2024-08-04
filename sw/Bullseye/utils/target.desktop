@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name="Bullseye Update"
+Name="Bullseye"
 Icon=/home/target/BLEtarget/sw/Bullseye/utils/bullseye.svg
-Exec=/home/target/Home/BLEtarget/sw/Bullseye/build/Bullseye
+Exec=/home/target/BLEtarget/sw/Bullseye/build/Bullseye
 Type=Application
-Terminal=true
+Terminal=false
