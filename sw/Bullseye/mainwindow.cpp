@@ -8,8 +8,8 @@
 #include "serialization.h"
 
 typedef enum{
-  hitData = 0,
-  heartbeat = 1
+  hitDataMsg = 0,
+  heartbeatMsg = 1
 }messageId_t;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -23,14 +23,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     connect(ui->menuButton, &QPushButton::clicked, this, [=](){this->mMenu->show();});
     connect(ui->clearButton, &QPushButton::clicked, ui->bullseye, &Bullseye::clear);
+    connect(ui->clearButton, &QPushButton::clicked, this, &MainWindow::clear);
     connect(mMenu, &menu::settingsButton, this, [=](){this->mSettings->show();});
     connect(mMenu, &menu::connectButtion, this, &MainWindow::openSerialPort);
     connect(mMenu, &menu::disconnectButton, this, &MainWindow::closeSerialPort);
-    connect(mMenu, &menu::aboutButton, this, &MainWindow::about);
+    connect(mMenu, &menu::saveButton, this, &MainWindow::save);
     connect(mMenu, &menu::settingsButton, mSettings, &SettingsDialog::updatePortInfo);
     connect(mSerial, &QSerialPort::readyRead, this, &MainWindow::readData);
     connect(this, &MainWindow::newHit, ui->bullseye, &Bullseye::addHit);
     connect(&mHeartbeatTimer, &QTimer::timeout, this, &MainWindow::heartbeatTimeout);
+
+
+    mHitData.push_back(hitData(0,0,100,200));
+    mHitData.push_back(hitData(40,40,202,202));
+    mHitData.push_back(hitData(0,0,100,200));
+    mHitData.push_back(hitData(0,0,100,200));
+
 
     // TODO add file to save previous configruation.
     //Try to open with default parameters.
@@ -74,10 +82,24 @@ void MainWindow::closeSerialPort()
 }
 
 
-void MainWindow::about()
+void MainWindow::save()
 {
-    QMessageBox::about(this, tr("About Bullseye"),
-                       tr("The Center ring represents a ring with 5mm radius. each subsequent ring has a raduis which is 5mm larger."));
+    QFile data("output.txt");
+    if (data.open(QFile::WriteOnly | QFile::Truncate))
+    {
+        QTextStream out(&data);
+
+        out << "xPos,yPos,xSpeed,ySpeed" << Qt::endl;
+        foreach (auto item, mHitData)
+        {
+            out << item;
+        }
+    }
+}
+
+void MainWindow::clear()
+{
+    mHitData.clear();
 }
 
 void MainWindow::readData()
@@ -97,7 +119,7 @@ void MainWindow::readData()
 
                     // TODO make a proper parser, and allow debug messages as well.
 
-                    if(data.size() == 4*sizeof(int32_t))
+                    if(data.size() == 5*sizeof(int32_t))
                     {
                         uint8_t* toDeserialize = (uint8_t*)data.data();
                         qDebug() << mSerialDataBuff.toHex();
@@ -106,21 +128,30 @@ void MainWindow::readData()
                         int32_t messageId = 0;
                         toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &messageId);
 
-                        if(messageId == hitData)
+                        if(messageId == hitDataMsg)
                         {
                             int32_t xValue=0;
                             int32_t yValue=0;
-                            int32_t speedValue=0;
+                            int32_t xSpeedValue=0;
+                            int32_t ySpeedValue=0;
+                            //int32_t speed=0;
+
 
                             toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &xValue);
                             toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &yValue);
-                            serialization::deserialize_int32_t(toDeserialize, &size, &speedValue);
+                            toDeserialize = serialization::deserialize_int32_t(toDeserialize, &size, &xSpeedValue);
+                            serialization::deserialize_int32_t(toDeserialize, &size, &ySpeedValue);
 
-                            emit newHit(xValue, yValue, speedValue);
-                            qDebug() << "New hit. X: " << xValue << " Y: " << yValue << " speed: " << speedValue;
+                            emit newHit(xValue, yValue, xSpeedValue, ySpeedValue);
+                            mHitData.push_back(hitData(xValue, yValue, xSpeedValue, ySpeedValue));
+
+                            qDebug() << "New hit. X: " << xValue << " Y: " << yValue << " speedx: " << xSpeedValue << " speedy: " << ySpeedValue;
                             heartbeatReceived();// new data is also a proof that the connection works.
+
+
+
                         }
-                        else if (messageId == heartbeat)
+                        else if (messageId == heartbeatMsg)
                         {
                             heartbeatReceived();
                         }

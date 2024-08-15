@@ -15,7 +15,7 @@ public:
      * @param y y position in mm from the center.
      * @param speed speed of the pellet.
      */
-    void addHit(int x, int y, int speed);
+    void addHit(int x, int y, int speedX, int speedY);
 
     /**
      * @brief clear clear the vector used to show hits.
@@ -25,7 +25,8 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     QVector<QPoint> mHits;
-    QVector<int32_t> mSpeed;
+    QVector<int32_t> mSpeedX;
+    QVector<int32_t> mSpeedY;
 
 
 signals:

@@ -16,7 +16,8 @@ void I2C_master_init(I2C_HandleTypeDef *hi2c)
   memset(&(I2C_master_obj.data), 0, DATA_LENGTH);
 }
 
-void I2C_master_read(uint8_t *buffer, uint16_t Size)
+uint8_t I2C_master_read(uint8_t *buffer, uint16_t Size)
 {
-  HAL_I2C_Master_Receive(I2C_master_obj.i2c_handler, I2C_master_obj.slaveAddr, buffer, Size, 500);
+  return (HAL_I2C_Master_Receive(I2C_master_obj.i2c_handler, I2C_master_obj.slaveAddr, buffer, Size, 500) == HAL_OK);
+
 }

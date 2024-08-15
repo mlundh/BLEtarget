@@ -5,6 +5,12 @@
 #include <QSerialPort>
 #include <QTimer>
 
+#include <QFile>
+#include <QStringList>
+#include <QDebug>
+
+#include "hitdata.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,8 +30,8 @@ public:
     void openSerialPort();
 
     void closeSerialPort();
-    void about();
-    void writeData(const QByteArray &data);
+    void save();
+    void clear();
     void readData();
 
     void handleError(QSerialPort::SerialPortError error);
@@ -35,7 +41,7 @@ public:
     void startHeartbeatTimer();
 
 signals:
-    void newHit(int x, int y, int speed);
+    void newHit(int x, int y, int speedX, int speedY);
 
 private:
     Ui::MainWindow *ui;
@@ -45,5 +51,6 @@ private:
     QByteArray mSerialDataBuff;
     bool mFoundStart;
     QTimer mHeartbeatTimer;
+    QVector<hitData> mHitData;
 };
 #endif // MAINWINDOW_H

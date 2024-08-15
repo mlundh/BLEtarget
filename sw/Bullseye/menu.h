@@ -18,7 +18,7 @@ signals:
     void settingsButton();
     void connectButtion();
     void disconnectButton();
-    void aboutButton();
+    void saveButton();
 private:
     Ui::menu *ui;
 };

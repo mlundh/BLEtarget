@@ -4,13 +4,14 @@
 Bullseye::Bullseye(QWidget *parent)
     : QWidget{parent}
 {
-
+    addHit(0,40,200,199);
 }
 
-void Bullseye::addHit(int x, int y, int speed)
+void Bullseye::addHit(int x, int y, int speedX, int speedY)
 {
     QPoint point(x,y); // scale in the paintEvent member.
-    mSpeed.push_back(speed);
+    mSpeedX.push_back(speedX);
+    mSpeedY.push_back(speedY);
     mHits.push_back(point);
     update();
 }
@@ -18,7 +19,7 @@ void Bullseye::addHit(int x, int y, int speed)
 void Bullseye::clear()
 {
     mHits.clear();
-    mSpeed.clear();
+    mSpeedX.clear();
     update();
 }
 
@@ -116,14 +117,20 @@ void Bullseye::paintEvent(QPaintEvent *event)
         painter.setPen(Qt::NoPen);
     }
 
+    painter.setFont(QFont("System",size/1.5));
 
-    if(!mSpeed.empty())
+    if(!mSpeedX.empty())
     {
         painter.setPen(Qt::black);
-        painter.drawText(QRectF(QPointF(sizeOrig/2 - size*2, -sizeOrig/2 + size/2) , QSizeF(size*3, size)), Qt::AlignCenter, QString::number(mSpeed.last()) + "m/s");
+        painter.drawText(QRectF(QPointF(sizeOrig/2 - size*3, -sizeOrig/2 + size/2) , QSizeF(size*5, size)), Qt::AlignCenter, "X: " + QString::number(mSpeedX.last()) + " m/s");
         painter.setPen(Qt::NoPen);
     }
-
+    if(!mSpeedY.empty())
+    {
+        painter.setPen(Qt::black);
+        painter.drawText(QRectF(QPointF(sizeOrig/2 - size*3, -sizeOrig/2 + 2.5*(size/2)) , QSizeF(size*5, size)), Qt::AlignCenter, "Y: " + QString::number(mSpeedY.last()) + " m/s");
+        painter.setPen(Qt::NoPen);
+    }
 
 
     painter.restore();

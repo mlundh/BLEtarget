@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         slippacket.cpp
         serialization.h
         serialization.cpp
+        hitdata.h
+        hitdata.cpp
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

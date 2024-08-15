@@ -12,7 +12,7 @@ menu::menu(QWidget *parent) :
     connect(ui->closeButton, &QPushButton::clicked, this, &QDialog::hide);
     connect(ui->connectButton, &QPushButton::clicked, this, [=](){emit this->connectButtion();});
     connect(ui->disconnectButton, &QPushButton::clicked, this, [=](){emit this->disconnectButton();});
-    connect(ui->aboutButton, &QPushButton::clicked, this, [=](){emit this->aboutButton();});
+    connect(ui->saveButton, &QPushButton::clicked, this, [=](){emit this->saveButton();});
 }
 
 menu::~menu()

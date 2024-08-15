@@ -6,7 +6,7 @@
 #include "i2c_master.h"
 #include "slip_packet.h"
 
-#define MESSAGE_SIZE 16
+#define MESSAGE_SIZE (5*4)
 
 static uint8_t master = 1;
 static SLIP_t *slipPacket = NULL;
@@ -71,18 +71,16 @@ void taskCyclic()
       uint8_t buffer[DATA_LENGTH];
       uint8_t *bufferP = buffer;
       uint32_t bufferSize = DATA_LENGTH;
+      int32_t positionY = ERROR;
+      int32_t speedY = SPEED_ERROR;
 
-      I2C_master_read(buffer, DATA_LENGTH);
+      positionY = 0;
+      speedY = 0;
 
-      int32_t positionY = 0;
-      int32_t speedY = 0;;
-      bufferP = deserialize_int32_t(bufferP, &bufferSize, &positionY);
-      bufferP = deserialize_int32_t(bufferP, &bufferSize, &speedY);
-
-      // for now use the largest speed value.
-      if(speedY > speed)
+      if(I2C_master_read(buffer, DATA_LENGTH))
       {
-        speed = speedY;
+        bufferP = deserialize_int32_t(bufferP, &bufferSize, &positionY);
+        bufferP = deserialize_int32_t(bufferP, &bufferSize, &speedY);
       }
 
       // Transmit data, serial over USB
@@ -95,6 +93,7 @@ void taskCyclic()
       messageP = serialize_int32_t(messageP, &messageSize, &position);
       messageP = serialize_int32_t(messageP, &messageSize, &positionY);
       messageP = serialize_int32_t(messageP, &messageSize, &speed);
+      messageP = serialize_int32_t(messageP, &messageSize, &speedY);
 
       Slip_Packetize(message, MESSAGE_SIZE, slipPacket);
 
@@ -144,6 +143,7 @@ void sendHeartbeat()
   int32_t zero = 0;
 
   messageP = serialize_int32_t(messageP, &messageSize, &messageId);
+  messageP = serialize_int32_t(messageP, &messageSize, &zero);
   messageP = serialize_int32_t(messageP, &messageSize, &zero);
   messageP = serialize_int32_t(messageP, &messageSize, &zero);
   messageP = serialize_int32_t(messageP, &messageSize, &zero);

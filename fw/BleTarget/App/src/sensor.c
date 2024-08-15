@@ -185,7 +185,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     }
     else
     {
-      //ERROR_ENTRY("Back row hit after scoring row.");
+      //ERROR_ENTRY("Back row hit after scoring row."); // Todo write error to!
     }
   }
   else // it is not the back row.
@@ -210,8 +210,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void timer2UpdateISR()
 {
   // Stop the timer then enable the flag for new value.
-  LL_TIM_SetCounter(sensor.timer, 0);
   LL_TIM_DisableCounter(sensor.timer);
+  LL_TIM_SetCounter(sensor.timer, 0);
   LL_TIM_DisableIT_UPDATE(sensor.timer);
   LL_TIM_ClearFlag_UPDATE(sensor.timer);
 

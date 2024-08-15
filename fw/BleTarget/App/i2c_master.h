@@ -23,6 +23,6 @@ typedef struct
 void I2C_master_init(I2C_HandleTypeDef *hi2c);
 
 
-void I2C_master_read(uint8_t *buffer, uint16_t Size);
+uint8_t I2C_master_read(uint8_t *buffer, uint16_t Size);
 
 #endif /* I2C_MASTER_H_ */
