@@ -4,7 +4,6 @@
 Bullseye::Bullseye(QWidget *parent)
     : QWidget{parent}
 {
-    addHit(0,40,200,199);
 }
 
 void Bullseye::addHit(int x, int y, int speedX, int speedY)
@@ -20,6 +19,7 @@ void Bullseye::clear()
 {
     mHits.clear();
     mSpeedX.clear();
+    mSpeedY.clear();
     update();
 }
 
